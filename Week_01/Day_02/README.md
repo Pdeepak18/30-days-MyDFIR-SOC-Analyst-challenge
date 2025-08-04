@@ -78,5 +78,5 @@ Understand how each ELK component works and how they help with log collection an
 ---
 ## 📚 References & Learning Resources
 
-https://tryhackme.com/room/investigatingwithelk101
+https://tryhackme.com/room/investigatingwithelk101 ,
 https://www.elastic.co/elastic-stack/features
