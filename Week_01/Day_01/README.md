@@ -13,3 +13,5 @@
   - **Attacker system**
   - **C2 (Command & Control) server**
 - Connected as **SOC Analyst** via GUI for monitoring.
+
+
