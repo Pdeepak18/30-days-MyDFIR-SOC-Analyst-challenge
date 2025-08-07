@@ -40,7 +40,7 @@ So, **Port Forwarding** helps us forward specific traffic from the host to the V
 
 Let’s say:
 
-- Ubuntu Server VM IP (NAT): `10.0.2.15`  
+- Ubuntu Server VM IP (NAT): `172.0.0.4`  
 - You want to SSH from your host to the VM
 
 **Port Forwarding Setup in VirtualBox:**  
@@ -53,7 +53,7 @@ Let’s say:
 | Protocol    | TCP           |
 | Host IP     | 127.0.0.1     |
 | Host Port   | 2222          |
-| Guest IP    | 10.0.2.15     |
+| Guest IP    | 172.0.0.4      |
 | Guest Port  | 22            |
 
 **Now Connect via Host Terminal:**
@@ -63,29 +63,6 @@ ssh yourusername@127.0.0.1 -p 2222
 ```
 
 🔐 This connects your local machine (host) to the VM over SSH using the forwarded port.
-
----
-
-### 🌐 Example: Elasticsearch Port Forwarding
-
-Elasticsearch by default runs on port `9200` inside the VM.
-
-**Add Another Port Forward Rule:**
-
-| Setting     | Value         |
-|-------------|---------------|
-| Name        | elasticsearch |
-| Protocol    | TCP           |
-| Host IP     | 127.0.0.1     |
-| Host Port   | 9200          |
-| Guest IP    | 10.0.2.15     |
-| Guest Port  | 9200          |
-
-**Now Access From Host:**
-
-```bash
-curl -u elastic https://127.0.0.1:9200 --insecure
-```
 
 ---
 
@@ -126,11 +103,9 @@ sudo nano /etc/elasticsearch/elasticsearch.yml
 Uncomment and set the following values:
 
 ```yaml
-network.host: 0.0.0.0
+network.host: 172.0.0.4
 http.port: 9200
 ```
-
-`0.0.0.0` allows connections from all interfaces (including port-forwarded access).
 
 ---
 
